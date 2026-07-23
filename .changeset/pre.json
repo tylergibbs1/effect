@@ -37,10 +37,12 @@
     "ai-docs": "0.0.0",
     "@effect/ai-docgen": "0.0.0",
     "@effect/sql-pglite": "4.0.0-beta.52",
-    "@effect/jsdocs": "0.0.0"
+    "@effect/jsdocs": "0.0.0",
+    "@effect/docgen": "4.0.0-beta.101"
   },
   "changesets": [
     "add-adaptive-rate-limiter-store",
+    "add-atom-equality",
     "add-bigdecimal-sumall-multiplyall",
     "add-chunk-schema",
     "add-command-hidden",
@@ -121,6 +123,7 @@
     "chubby-planets-fall",
     "clean-balloons-tan",
     "clean-bulldogs-care",
+    "clean-cats-document",
     "clean-dryers-sneeze",
     "clean-geese-work",
     "clean-goats-wave",
@@ -295,6 +298,7 @@
     "fix-entity-manager-defect-replay",
     "fix-entity-proxy-rpc-handler-context",
     "fix-entity-proxy-server-path-params",
+    "fix-fiberhandle-clear-race",
     "fix-from-json-string-identifier",
     "fix-from-readable-stream-cancel-defect",
     "fix-graph-allocator-equality",
@@ -617,6 +621,7 @@
     "schema-remove-annotate-in",
     "schema-rename-makeUnsafe-to-make",
     "schema-rename-parser-makeUnsafe",
+    "schema-representation-refactoring",
     "schema-result-combinators",
     "schema-struct-simplify",
     "semantic-matching",
