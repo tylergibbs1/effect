@@ -1,0 +1,29 @@
+name: Verify 10673
+on:
+  push:
+    branches: [verify-10673]
+permissions:
+  contents: read
+jobs:
+  run:
+    name: ${{ matrix.side }} ${{ matrix.n }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        side: [fix, before]
+        n: [1, 2, 3, 4, 5]
+    env:
+      EFFECT_CLUSTER_TESTS: "1"
+      TESTCONTAINERS_RYUK_DISABLED: "true"
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 3
+      - name: Revert the fix for the before side
+        if: matrix.side == 'before'
+        run: git checkout HEAD~2 -- packages/platform/node/test/cluster-integration/globalSetup.ts && git status --short
+      - uses: ./.github/actions/setup
+      - name: Test
+        run: pnpm test-cluster
